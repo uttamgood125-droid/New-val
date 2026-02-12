@@ -4,16 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>For My Baccha ❤️</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <audio id="mySong" src="loveu.mp3" loop></audio>
+    
+    <div id="heart-container"></div>
+    <div id="rose-container"></div>
+    <div class="vignette"></div>
 
-    <div class="flower-border"></div> 
+    <div class="page-neon-border"></div>
+
+    <div class="flower-corner top-left">🌸</div>
+    <div class="flower-corner top-right">🌺</div>
+    <div class="flower-corner bottom-left">🌷</div>
+    <div class="flower-corner bottom-right">🌻</div>
+
+    <button id="musicToggle">🎵</button>
+
     <div class="container">
         <div id="step1" class="step">
-            <img class="mainGif" src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdjE2ZzJ6bW9meGlwbDg2cHBtMDk4eW80d2ZnaDlyMDZoZGc5NHg1byZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ANjMpBvC9LeRUopsoU/giphy.gif">
+            <div class="photo-wrap">
+                <img class="mainGif animated-photo" src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdjE2ZzJ6bW9meGlwbDg2cHBtMDk4eW80d2ZnaDlyMDZoZGc5NHg1byZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ANjMpBvC9LeRUopsoU/giphy.gif">
+            </div>
             <h1>Swetu, Will you be my Valentine? ❤️</h1>
             <div class="buttons">
                 <button id="yesBtn">Yes!</button>
@@ -22,9 +36,11 @@
         </div>
 
         <div id="step2" class="step" style="display:none;">
-            <img class="photo border-design" src="eyes.jpg">
+            <div class="photo-wrap">
+                <img class="photo animated-photo" src="eyes.jpg">
+            </div>
             <h1>Your Eyes... ✨</h1>
-            <p class="message">Tumhari aankhon mein jo gehra sa noor hai,<br>Wahi meri har khamoshi ka suroor hai. ✨</p>
+            <p class="message typing" data-text="Tumhari aankhon mein jo gehra sa noor hai, Wahi meri har khamoshi ka suroor hai. ✨"></p>
             <div class="button-group">
                 <button class="backBtn" onclick="nextPage(1)">back</button>
                 <button class="nextBtnSmall" onclick="nextPage(3)">Next Page Baccha 😘</button>
@@ -32,9 +48,11 @@
         </div>
 
         <div id="step3" class="step" style="display:none;">
-            <img class="photo border-design" src="lips.jpg">
+            <div class="photo-wrap">
+                <img class="photo animated-photo" src="lips.jpg">
+            </div>
             <h1>Your Lips... 💋</h1>
-            <p class="message">Tumhare labon pe jo muskaan saj jaati hai,<br>Wohi meri har thakan chura le jaati hai. ✨</p>
+            <p class="message typing" data-text="Tumhare labon pe jo muskaan saj jaati hai, Wohi meri har thakan chura le jaati hai. ✨"></p>
             <div class="button-group">
                 <button class="backBtn" onclick="nextPage(2)">back</button>
                 <button class="nextBtnSmall" onclick="nextPage(4)">Next Page Baccha 😘</button>
@@ -42,14 +60,16 @@
         </div>
 
         <div id="step4" class="step" style="display:none;">
-            <img class="photo border-design" src="pyaar.jpg"> 
+            <div class="photo-wrap">
+                <img class="photo animated-photo" src="pyaar.jpg">
+            </div>
             <h1>This is for you 😍</h1>
             <div class="languages">
-                <div class="lang-box"><small>ENGLISH</small><br>I Love You Swetu</div>
-                <div class="lang-box"><small>URDU</small><br>میں تم سے پیار کرتا ہوں</div>
-                <div class="lang-box"><small>HINDI</small><br>मैं तुमसे प्यार करता हूँ</div>
-                <div class="lang-box"><small>FRENCH</small><br>Je T'aime</div>
-                <div class="lang-box"><small>SPANISH</small><br>Te Amo</div>
+                <div class="lang-box en"><small>ENGLISH</small><br>I Love You Swetu</div>
+                <div class="lang-box ur"><small>URDU</small><br>میں تم سے پیار کرتا ہوں</div>
+                <div class="lang-box hi"><small>HINDI</small><br>मैं तुमसे प्यार करता हूँ</div>
+                <div class="lang-box fr"><small>FRENCH</small><br>Je T'aime</div>
+                <div class="lang-box es"><small>SPANISH</small><br>Te Amo</div>
             </div>
             <div class="button-group">
                 <button class="backBtn" onclick="nextPage(3)">back</button>
@@ -58,9 +78,11 @@
         </div>
 
         <div id="step5" class="step" style="display:none;">
-            <img class="photo border-design" src="rose.jpg"> 
+            <div class="photo-wrap">
+                <img class="photo animated-photo" src="rose.jpg">
+            </div>
             <h1>Love u❤️ ~ Ur Uttam</h1>
-            <p class="message">I love you so much! Happy Valentine's Day my baccha!</p>
+            <p class="message typing" data-text="I love you so much! Happy Valentine's Day my baccha!"></p>
             <div class="button-group">
                 <button class="backBtn" onclick="nextPage(4)">back</button>
                 <button class="nextBtnSmall" onclick="nextPage(6)">Final Page Baccha 😘</button>
@@ -68,8 +90,23 @@
         </div>
 
         <div id="step6" class="step" style="display:none;">
-            <img class="photo border-design" src="me.jpg"> 
+            <div class="photo-wrap">
+                <img class="photo animated-photo" src="me.jpg">
+            </div>
             <h1>My Dearest Valentine ❤️</h1>
+            <div class="letter-text">
+                <p class="typing" data-text="From the moment you walked into my life, everything became more beautiful. Your smile lights up my darkest days... Every moment with you is a treasure I hold close to my heart. You are my best friend, my soulmate, and my forever love. I promise to cherish you, to make you laugh, and to love you with all my heart."></p>
+                <h2 style="font-family: 'Dancing Script'; color: #d02e77; margin-top: 10px;">Forever Yours 💖</h2>
+            </div>
+            <div class="button-group">
+                <button class="backBtn" onclick="nextPage(5)">back</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
             <div class="letter-text">
                 <p>From the moment you walked into my life, everything became more beautiful. Your smile lights up my darkest days...</p>
                 <p>Every moment with you is a treasure I hold close to my heart. You are my best friend, my soulmate, and my forever love.</p>
