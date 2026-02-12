@@ -1,4 +1,4 @@
-/* Custom Heart Cursor */
+/* --- Custom Heart Cursor --- */
 html, body {
     cursor: url('https://cur.cursors-4u.net/symbols/sym-9/sym847.cur'), auto !important;
 }
@@ -12,15 +12,16 @@ body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
     position: relative;
-    overflow: hidden;
+    overflow: hidden; /* Changed to hidden to stop heart overflow */
     border: 10px double #ff69b4;
     box-sizing: border-box;
 }
 
+/* --- Music Toggle Button --- */
 #musicToggle {
     position: fixed;
     top: 20px;
-    right: 70px;
+    right: 70px; /* Flower border se bachne ke liye */
     z-index: 2000;
     background: white;
     border: 2px solid #ff69b4;
@@ -28,24 +29,42 @@ body {
     width: 40px;
     height: 40px;
     cursor: pointer;
+    font-size: 1.2rem;
 }
 
-#heart-container {
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    pointer-events: none;
-    z-index: 1;
-}
-
+/* --- Falling Hearts Style --- */
 .heart-drop {
-    position: absolute;
+    position: fixed;
     top: -10%;
+    font-size: 20px;
+    color: #ff69b4;
+    user-select: none;
+    z-index: 1;
     animation: fall linear forwards;
 }
 
 @keyframes fall {
     to { transform: translateY(110vh) rotate(360deg); }
 }
+
+h1 { 
+    font-family: 'Dancing Script', cursive; 
+    color: #d02e77; 
+    font-size: 2rem; 
+    margin: 10px 0;
+}
+
+body::before, body::after, .flower-border::before, .flower-border::after {
+    content: '🌿🌸';
+    position: fixed;
+    font-size: 2.2rem;
+    z-index: 1000;
+    pointer-events: none;
+}
+body::before { top: 10px; left: 10px; }
+body::after { top: 10px; right: 10px; }
+.flower-border::before { bottom: 10px; left: 10px; }
+.flower-border::after { bottom: 10px; right: 10px; }
 
 .container {
     text-align: center;
@@ -60,16 +79,64 @@ body {
     z-index: 10;
 }
 
-/* Sabse Important: Steps alignment */
-.step {
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.animated-photo {
     width: 100%;
+    height: 250px;
+    object-fit: contain;
+    background: white;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    border: 5px solid #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    animation: floatImage 3s ease-in-out infinite;
 }
 
-h1 { font-family: 'Dancing Script', cursive; color: #d02e77; font-size: 1.8rem; margin: 10px 0; }
+@keyframes floatImage {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.fade-in-scale {
+    animation: fadeInScale 0.8s ease-out forwards;
+}
+
+@keyframes fadeInScale {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.languages { display: flex; flex-direction: column; gap: 8px; margin: 15px 0; }
+.lang-box { padding: 8px; border-radius: 12px; font-weight: bold; font-size: 0.85rem; transition: 0.3s; cursor: pointer; }
+.lang-box:hover { transform: scale(1.05); }
+
+.lang-box:nth-child(1) { background-color: #e3f2fd; color: #1565c0; }
+.lang-box:nth-child(2) { background-color: #e8f5e9; color: #2e7d32; }
+.lang-box:nth-child(3) { background-color: #fff3e0; color: #e65100; }
+.lang-box:nth-child(4) { background-color: #f3e5f5; color: #7b1fa2; }
+.lang-box:nth-child(5) { background-color: #fce4ec; color: #c2185b; }
+
+.message { color: #b01e5a; font-size: 1rem; line-height: 1.4; min-height: 3em; }
+
+.letter-text {
+    background: rgba(255, 240, 245, 0.5);
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px dashed #ffb6c1;
+    font-size: 0.9rem;
+    color: #b01e5a;
+    font-style: italic;
+    text-align: left;
+}
+
+.button-group { display: flex; justify-content: space-between; margin-top: 15px; }
+#yesBtn, #noBtn, .nextBtnSmall, .backBtn {
+    border-radius: 20px; border: none; font-weight: bold; cursor: pointer; transition: 0.2s;
+}
+#yesBtn { background-color: #ff69b4; color: white; padding: 10px 20px; }
+#yesBtn:hover { transform: scale(1.1); box-shadow: 0 0 10px #ff69b4; }
+#noBtn { background-color: #fb8da0; color: white; padding: 10px 20px; position: fixed; z-index: 9999; }
+.nextBtnSmall { background-color: #d02e77; color: white; padding: 8px 15px; font-size: 0.75rem; }
+.backBtn { background-color: #fb8da0; color: white; padding: 8px 15px; font-size: 0.75rem; }
 
 .animated-photo {
     width: 100%;
