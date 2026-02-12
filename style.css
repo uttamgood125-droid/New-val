@@ -1,75 +1,56 @@
-/* --- Custom Heart Cursor --- */
-html, body {
-    cursor: url('https://cur.cursors-4u.net/symbols/sym-9/sym847.cur'), auto !important;
-}
-
-body {
-    background-color: #ffe4e1;
-    display: flex;
-    justify-content: center;
+/* --- Step container ko center karne ke liye --- */
+.step {
+    display: none; /* Default hidden */
+    flex-direction: column;
     align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    position: relative;
-    overflow: hidden; /* Changed to hidden to stop heart overflow */
-    border: 10px double #ff69b4;
-    box-sizing: border-box;
+    justify-content: center;
+    width: 100%;
 }
 
-/* --- Music Toggle Button --- */
-#musicToggle {
-    position: fixed;
-    top: 20px;
-    right: 70px; /* Flower border se bachne ke liye */
-    z-index: 2000;
-    background: white;
-    border: 2px solid #ff69b4;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    font-size: 1.2rem;
+/* Jab step active ho (script se) toh ye class apply hogi */
+.step[style*="display: block"] {
+    display: flex !important; 
 }
 
-/* --- Falling Hearts Style --- */
-.heart-drop {
-    position: fixed;
-    top: -10%;
-    font-size: 20px;
-    color: #ff69b4;
-    user-select: none;
-    z-index: 1;
-    animation: fall linear forwards;
-}
-
-@keyframes fall {
-    to { transform: translateY(110vh) rotate(360deg); }
-}
-
-h1 { 
-    font-family: 'Dancing Script', cursive; 
-    color: #d02e77; 
-    font-size: 2rem; 
-    margin: 10px 0;
-}
-
-body::before, body::after, .flower-border::before, .flower-border::after {
-    content: '🌿🌸';
-    position: fixed;
-    font-size: 2.2rem;
-    z-index: 1000;
-    pointer-events: none;
-}
-body::before { top: 10px; left: 10px; }
-body::after { top: 10px; right: 10px; }
-.flower-border::before { bottom: 10px; left: 10px; }
-.flower-border::after { bottom: 10px; right: 10px; }
-
+/* --- Container fix --- */
 .container {
     text-align: center;
-    width: 90%;
-    max-width: 380px;
+    width: 95%;
+    max-width: 400px;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 20px;
+    border-radius: 20px;
+    border: 2px solid #ff69b4;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 10;
+    margin: auto; /* Screen ke beech mein rakhne ke liye */
+}
+
+/* --- Photo size fix --- */
+.animated-photo {
+    width: 100%;
+    max-width: 300px; /* Boht badi na ho jaye */
+    height: auto;
+    aspect-ratio: 1/1; /* Square shape maintain karegi */
+    object-fit: cover;
+    border-radius: 15px;
+    margin: 0 auto 15px auto;
+    display: block;
+}
+
+/* --- Letter text fix --- */
+.letter-text {
+    background: rgba(255, 240, 245, 0.5);
+    padding: 15px;
+    border-radius: 15px;
+    border: 1px dashed #ffb6c1;
+    font-size: 0.95rem;
+    color: #b01e5a;
+    width: 100%; /* Side mein na bhage */
+    box-sizing: border-box;
+    text-align: center; /* Text center mein rahe */
+}
     background: rgba(255, 255, 255, 0.85);
     padding: 20px;
     border-radius: 20px;
