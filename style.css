@@ -1,56 +1,56 @@
-/* --- Step container ko center karne ke liye --- */
-.step {
-    display: none; /* Default hidden */
-    flex-direction: column;
-    align-items: center;
+/* Custom Heart Cursor */
+html, body {
+    cursor: url('https://cur.cursors-4u.net/symbols/sym-9/sym847.cur'), auto !important;
+}
+
+body {
+    background-color: #ffe4e1;
+    display: flex;
     justify-content: center;
-    width: 100%;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    overflow: hidden;
+    border: 10px double #ff69b4;
+    box-sizing: border-box;
 }
 
-/* Jab step active ho (script se) toh ye class apply hogi */
-.step[style*="display: block"] {
-    display: flex !important; 
+#musicToggle {
+    position: fixed;
+    top: 20px;
+    right: 70px;
+    z-index: 2000;
+    background: white;
+    border: 2px solid #ff69b4;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
 }
 
-/* --- Container fix --- */
+#heart-container {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.heart-drop {
+    position: absolute;
+    top: -10%;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to { transform: translateY(110vh) rotate(360deg); }
+}
+
 .container {
     text-align: center;
-    width: 95%;
-    max-width: 400px;
-    background: rgba(255, 255, 255, 0.85);
-    padding: 20px;
-    border-radius: 20px;
-    border: 2px solid #ff69b4;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    position: relative;
-    z-index: 10;
-    margin: auto; /* Screen ke beech mein rakhne ke liye */
-}
-
-/* --- Photo size fix --- */
-.animated-photo {
-    width: 100%;
-    max-width: 300px; /* Boht badi na ho jaye */
-    height: auto;
-    aspect-ratio: 1/1; /* Square shape maintain karegi */
-    object-fit: cover;
-    border-radius: 15px;
-    margin: 0 auto 15px auto;
-    display: block;
-}
-
-/* --- Letter text fix --- */
-.letter-text {
-    background: rgba(255, 240, 245, 0.5);
-    padding: 15px;
-    border-radius: 15px;
-    border: 1px dashed #ffb6c1;
-    font-size: 0.95rem;
-    color: #b01e5a;
-    width: 100%; /* Side mein na bhage */
-    box-sizing: border-box;
-    text-align: center; /* Text center mein rahe */
-}
+    width: 90%;
+    max-width: 380px;
     background: rgba(255, 255, 255, 0.85);
     padding: 20px;
     border-radius: 20px;
@@ -60,16 +60,68 @@
     z-index: 10;
 }
 
+/* Sabse Important: Steps alignment */
+.step {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+h1 { font-family: 'Dancing Script', cursive; color: #d02e77; font-size: 1.8rem; margin: 10px 0; }
+
 .animated-photo {
     width: 100%;
+    max-width: 280px;
     height: 250px;
     object-fit: contain;
     background: white;
     border-radius: 15px;
     margin-bottom: 15px;
     border: 5px solid #fff;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     animation: floatImage 3s ease-in-out infinite;
+}
+
+@keyframes floatImage {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.fade-in-scale { animation: fadeInScale 0.8s ease-out forwards; }
+@keyframes fadeInScale {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.languages { display: flex; flex-direction: column; gap: 8px; width: 100%; margin: 10px 0; }
+.lang-box { padding: 8px; border-radius: 12px; font-weight: bold; font-size: 0.85rem; }
+.lang-box:nth-child(1) { background-color: #e3f2fd; color: #1565c0; }
+.lang-box:nth-child(2) { background-color: #e8f5e9; color: #2e7d32; }
+.lang-box:nth-child(3) { background-color: #fff3e0; color: #e65100; }
+.lang-box:nth-child(4) { background-color: #f3e5f5; color: #7b1fa2; }
+.lang-box:nth-child(5) { background-color: #fce4ec; color: #c2185b; }
+
+.message { color: #b01e5a; font-size: 1rem; line-height: 1.4; min-height: 3em; margin: 10px 0; }
+
+.letter-text {
+    background: rgba(255, 240, 245, 0.5);
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px dashed #ffb6c1;
+    font-size: 0.9rem;
+    color: #b01e5a;
+    font-style: italic;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.button-group { display: flex; justify-content: space-between; width: 100%; margin-top: 15px; }
+#yesBtn, #noBtn, .nextBtnSmall, .backBtn { border-radius: 20px; border: none; font-weight: bold; cursor: pointer; }
+#yesBtn { background-color: #ff69b4; color: white; padding: 10px 25px; }
+#noBtn { background-color: #fb8da0; color: white; padding: 10px 20px; position: fixed; z-index: 9999; }
+.nextBtnSmall { background-color: #d02e77; color: white; padding: 8px 15px; font-size: 0.75rem; }
+.backBtn { background-color: #fb8da0; color: white; padding: 8px 15px; font-size: 0.75rem; }
 }
 
 @keyframes floatImage {
